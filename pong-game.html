@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+            color: #00ffff;
+            letter-spacing: 3px;
+        }
+
+        .scoreboard {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            font-size: 1.5em;
+            background: rgba(0, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #00ffff;
+        }
+
+        .score-section {
+            flex: 1;
+        }
+
+        .score-section h2 {
+            font-size: 0.8em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            color: #00ff00;
+        }
+
+        #playerScore,
+        #computerScore {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ffff00;
+            text-shadow: 0 0 10px #ffff00;
+        }
+
+        canvas {
+            background-color: #1a1a2e;
+            border: 3px solid #00ffff;
+            border-radius: 10px;
+            display: block;
+            margin: 0 auto 30px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .instructions {
+            background: rgba(0, 255, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #00ff00;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .instructions h3 {
+            color: #00ff00;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .instructions p {
+            margin-bottom: 8px;
+        }
+
+        .controls {
+            color: #ffff00;
+            font-weight: bold;
+        }
+
+        .button {
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #00ffff, #00ff00);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            canvas {
+                width: 100%;
+                height: auto;
+            }
+
+            .instructions {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 PONG GAME 🎮</h1>
+
+        <div class="scoreboard">
+            <div class="score-section">
+                <h2>👤 You</h2>
+                <div id="playerScore">0</div>
+            </div>
+            <div class="score-section">
+                <h2>vs</h2>
+            </div>
+            <div class="score-section">
+                <h2>💻 Computer</h2>
+                <div id="computerScore">0</div>
+            </div>
+        </div>
+
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+        <div class="instructions">
+            <h3>📋 How to Play:</h3>
+            <p><span class="controls">🖱️ Move Mouse Up/Down</span> or <span class="controls">⬆️⬇️ Arrow Keys</span> - Control left paddle</p>
+            <p><span class="controls">💻 Computer</span> - Automatically controls right paddle</p>
+            <p>⚽ Hit the ball with your paddle to bounce it back</p>
+            <p>🎯 Get the ball past the opponent's paddle to score</p>
+            <p>🏆 First to 10 points wins!</p>
+            <p style="margin-top: 15px; color: #00ffff;">💡 <span class="controls">Move your mouse or press any key to start the game!</span></p>
+        </div>
+
+        <button class="button" onclick="location.reload()">🔄 New Game</button>
+    </div>
+
+    <script src="pong-game.js"></script>
+</body>
+</html>
